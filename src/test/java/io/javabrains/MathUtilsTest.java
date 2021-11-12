@@ -51,7 +51,7 @@ public class MathUtilsTest {
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(1, 0));
     }
 
-    @Test
+    @RepeatedTest(5)
     void testComputeCircleArea() {
         assertEquals(314.1592653589793, mathUtils.computeCircleArea(10), "The computeCircleArea should calculate circle area");
     }
