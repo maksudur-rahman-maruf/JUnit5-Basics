@@ -2,6 +2,8 @@ package io.javabrains;
 
 import io.javabrains.MathUtils;
 import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.condition.EnabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,6 +25,17 @@ public class MathUtilsTest {
     }
 
     @Test
+    @DisplayName("Testing Multiply Method")
+    void testMultiply() {
+        assertAll(
+                () -> assertEquals(2, mathUtils.multiply(2,1)),
+                () -> assertEquals(4, mathUtils.multiply(2,2)),
+                () -> assertEquals(-2, mathUtils.multiply(2, -1))
+        );
+    }
+
+    @Test
+    @EnabledOnOs(OS.LINUX)
     void testDivide() {
         assertThrows(ArithmeticException.class, () -> mathUtils.divide(1, 0));
     }
